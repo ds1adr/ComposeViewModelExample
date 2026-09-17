@@ -54,6 +54,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose")
     implementation("androidx.compose.runtime:runtime-livedata")
     implementation("com.google.code.gson:gson:2.13.1")
-    implementation("com.squareup.retrofit2:converter-gson")
-    implementation("com.squareup.retrofit2:retrofit")
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 }
