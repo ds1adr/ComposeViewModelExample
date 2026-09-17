@@ -13,7 +13,7 @@ interface INetworkService {
     fun getTracks(@Query("format") format: String): Call<TracksDataModel>
 }
 
-class NetworkService {
+object NetworkService {
     val retrofit
         get() = Retrofit.Builder()
             .baseUrl("https://openwhyd.org")
