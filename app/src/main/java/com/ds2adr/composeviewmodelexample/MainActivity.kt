@@ -36,9 +36,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        lifecycleScope.launch {
-            viewModel.loadTracks()
-        }
     }
 }
 
