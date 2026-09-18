@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,6 +20,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ds2adr.composeviewmodelexample.ui.theme.ComposeViewModelExampleTheme
 import kotlinx.coroutines.launch
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 
 class MainActivity : ComponentActivity() {
     private val viewModel: TracksViewModel by viewModels()
@@ -43,7 +49,14 @@ class MainActivity : ComponentActivity() {
 fun TrackListView(viewModel: TracksViewModel, modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         items(viewModel.tracks, key = { it.id }) { track ->
-            Text(text = track.name)
+            Row(modifier = Modifier.fillMaxWidth()) {
+                AsyncImage(
+                    model = track.imageURLString,
+                    contentDescription = null,
+                    modifier = Modifier.width(50.dp).height(50.dp).padding(8.dp)
+                )
+                Text(text = track.name)
+            }
         }
     }
 }
